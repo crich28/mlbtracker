@@ -14,4 +14,3 @@ for tr in body:
         print()
     
 
-print()
