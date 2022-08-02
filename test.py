@@ -10,18 +10,20 @@ result = requests.get(url)
 doc = BeautifulSoup(result.text, 'html.parser')
 body = doc.find_all('td')
 
-ranks =[]
-for tr in body[13:]:
-    for td in tr.contents[1:6]:
-        strings=td.string
-        ranks.append(strings)
+
+
+data =[]
+for td in body[13:]:
+    for tag in td.contents[1:6]:
+        strings=tag.string
+        data.append(strings)
 
 
 def splitter(list, n):
     for i in range(0,len(list),n):
         yield list[i:i+n]     
 
-stats = list(splitter(ranks,5))
+stats = list(splitter(data,5))
 
 tags = ['Player', 'Team', 'Pos', 'Rank', 'Ratings']  
 filename = 'mlbrankings.csv'      
