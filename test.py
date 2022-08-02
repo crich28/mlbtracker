@@ -13,5 +13,5 @@ for tr in body:
         print(td.string)
         print()
     
-rank ={}
+
 print()
